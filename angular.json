@@ -119,6 +119,46 @@
           }
         }
       }
+    },
+    "NgxStringFormat": {
+      "projectType": "library",
+      "root": "projects/ngx-string-format",
+      "sourceRoot": "projects/ngx-string-format/src",
+      "prefix": "Ngx",
+      "architect": {
+        "build": {
+          "builder": "@angular-devkit/build-ng-packagr:build",
+          "options": {
+            "tsConfig": "projects/ngx-string-format/tsconfig.lib.json",
+            "project": "projects/ngx-string-format/ng-package.json"
+          },
+          "configurations": {
+            "production": {
+              "tsConfig": "projects/ngx-string-format/tsconfig.lib.prod.json"
+            }
+          }
+        },
+        "test": {
+          "builder": "@angular-devkit/build-angular:karma",
+          "options": {
+            "main": "projects/ngx-string-format/src/test.ts",
+            "tsConfig": "projects/ngx-string-format/tsconfig.spec.json",
+            "karmaConfig": "projects/ngx-string-format/karma.conf.js"
+          }
+        },
+        "lint": {
+          "builder": "@angular-devkit/build-angular:tslint",
+          "options": {
+            "tsConfig": [
+              "projects/ngx-string-format/tsconfig.lib.json",
+              "projects/ngx-string-format/tsconfig.spec.json"
+            ],
+            "exclude": [
+              "**/node_modules/**"
+            ]
+          }
+        }
+      }
     }},
   "defaultProject": "StringFormatLibrary"
 }
