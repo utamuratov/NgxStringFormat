@@ -1,13 +1,12 @@
 import { NgModule } from '@angular/core';
-import { NgxStringFormatComponent } from './ngx-string-format.component';
 import { StringFormatPipe } from './pipes/string-format.pipe';
 
 
 
 @NgModule({
-  declarations: [NgxStringFormatComponent, StringFormatPipe],
+  declarations: [StringFormatPipe],
   imports: [
   ],
-  exports: [NgxStringFormatComponent, StringFormatPipe]
+  exports: [StringFormatPipe]
 })
 export class NgxStringFormatModule { }

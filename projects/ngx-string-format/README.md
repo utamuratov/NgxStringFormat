@@ -1,24 +1,47 @@
-# NgxStringFormat
+# Angular stringFormat Pipe [display money, unicode, zeroString, time]
 
 This library was generated with [Angular CLI](https://github.com/angular/angular-cli) version 9.0.7.
+This pipe helps to confert a string from a simple view to special view. For example, ```12345 => 12 345; #&1179 => қ; 1250 => 00:20:50``` and so on.
 
-## Code scaffolding
+## Installation
 
-Run `ng generate component component-name --project NgxStringFormat` to generate a new component. You can also use `ng generate directive|pipe|service|class|guard|interface|enum|module --project NgxStringFormat`.
-> Note: Don't forget to add `--project NgxStringFormat` or else it will be added to the default project in your `angular.json` file. 
+Use this following command to install:
 
-## Build
+```bash
+npm i @utamuratov/ngx-string-format
+```
 
-Run `ng build NgxStringFormat` to build the project. The build artifacts will be stored in the `dist/` directory.
+## Usage
 
-## Publishing
+```
+import { NgxStringFormatModule} from '@utamuratov/ngx-string-format';
+ 
+@NgModule({
+  declarations: [AppComponent],
+  imports: [NgxStringFormat],
+  bootstrap: [AppComponent]
+})
+export class AppModule {}
+```
 
-After building your library with `ng build NgxStringFormat`, go to the dist folder `cd dist/ngx-string-format` and run `npm publish`.
+# Using
+```
+{{anyString| stringFormat: 'spaceEachThreeCharacters'}}
 
-## Running unit tests
+# for example
+{{'12345'| stringFormat: 'spaceEachThreeCharactersWithTwoZero'}}
 
-Run `ng test NgxStringFormat` to execute the unit tests via [Karma](https://karma-runner.github.io).
+# result
+12 345.00
+```
 
-## Further help
-
-To get more help on the Angular CLI use `ng help` or go check out the [Angular CLI README](https://github.com/angular/angular-cli/blob/master/README.md).
+## API
+Pipe cases:
+| Cases                      |      Are      |
+|----------------------------|:-------------:|
+| 'spaceEachThreeCharacters' |  Starts at the end and throws one space after every 3 characters: ```12345 => 12 345``` |
+| 'spaceEachThreeCharactersWithTwoZero' |    Starting at the end, it throws one space after every 3 characters and rounds off the 2 characters with precision: ```12345.56 => 12 345.56```|
+| 'beforeTwoDigitWithComma' | Puts a full stop before the last 2 characters: ```1234 => 12.34``` |
+|'withLeftOneZero' |```1=>01; 5=>05``` |
+|'unicode'|It converts all unicodes in the context to string|
+|'secundsToTime'|Secunds are converted to hours, minutes, secunds format: ```125 => 00:02:05```|

@@ -1,6 +1,6 @@
 {
-  "name": "ngx-string-format",
-  "version": "1.0.0",
+  "name": "@utamuratov/ngx-string-format",
+  "version": "2.0.1",
   "description": "A simple pipe which helps to change string format",
   "author": "Odilbek Utamuratov",
   "repository": {
@@ -10,13 +10,16 @@
   "bugs": {
     "url": "https://github.com/utamuratov/NgxStringFormat/issues"
   },
-  "homepage": "https://github.com/utamuratov/NgxStringFormat",
+  "homepage": "https://github.com/utamuratov/NgxStringFormat#readme",
   "keywords": [
     "angular",
     "javascript",
     "typescript",
     "stringFormat",
-    "pipe"
+    "pipe",
+    "time",
+    "money",
+    "unicode"
   ],
   "license": "MIT",
   "peerDependencies": {
